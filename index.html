@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Slide</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <div class="banner">
+        <div class="navbar"> 
+            
+            <img src="logoo1.png" class="logo">
+            <ul>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="membership_plans.php">Our Packages</a></li>
+                <li><a href="review.php">Customer Reviews</a></li>
+                <li><a href="news_feed.php">News</a></li>
+                <li><a id="user-button" href="loginNow.html" style="color: #FF5733; font-size: 18px;">Login</a></li>
+            </ul>
+        </div>
+        
+        <div class="content">
+            <h1>Where Health Meets <span class="blast">Unstoppable</span> Energy</h1>
+            <p>Stay connected with Kurunagala FitZone Fitness Center for the latest workout tips, nutrition advice, and updates on our classes and events. Explore our community and discover new ways to achieve your fitness goals and lead a healthier lifestyle!</p>
+            <div>
+                <a href="display_items.php" target="_blank">
+                <button class="button" type="button"><span></span> STORE </button></a>
+                <a href="products.html" target="_blank">
+                <button class="button" type="button"><span></span> Our Programes</button></a>
+            </div>        
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Kurunagala FitZone Fitness Center. All Rights Reserved.</p>
+            <ul>
+                <li><a href="privacy_policy.html">Privacy Policy</a></li>
+                <li><a href="terms_of_service.html">Terms of Service</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+            <div class="social-media">
+                <a href="theekshana vidushan"><i class="fab fa-facebook-f"></i></a>
+                <a href="theekshana vidushan"><i class="fab fa-twitter"></i></a>
+                <a href="theekshana vidushan"><i class="fab fa-instagram"></i></a>
+                <a href="theekshana vidushan"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Function to check local storage for the user's name
+        function displayUserName() {
+            var fullName = localStorage.getItem('full_name');
+            if (fullName) {
+                var userButton = document.getElementById('user-button');
+                userButton.innerHTML = '<span style="color:#3dcc6a;">' + fullName + '</span>'; // Set the button text to the user's name in green
+                userButton.href = 'profile.php'; // Set the button link to the profile page
+            }
+        }
+
+        // Call the function on page load
+        window.onload = displayUserName;
+    </script>
+</body>
+</html>
