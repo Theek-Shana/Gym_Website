@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - FitZone Fitness Center</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-image: url('reviewP.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .navbar {
+    width: 90%;
+    margin: auto;
+    padding: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 100px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    margin: 0 10px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    margin-right: 20px;
+    font-weight: 300;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.navbar ul li a:hover {
+    color: #ffbc05;
+}
+
+.navbar ul li::after {
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #e46600;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: width 0.5s;
+}
+
+.navbar ul li:hover::after {
+    width: 100%;
+}
+
+    /* Contact Container */
+    .contact-container {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      width: 400px;
+      border-radius: 12px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      color: #FF5733;
+    }
+
+    p {
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    input,
+    textarea,
+    button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #FF5733;
+      box-shadow: 0 0 5px rgba(255, 87, 51, 0.5);
+    }
+
+    button {
+      background-color: #FF5733;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #e14f28;
+    }
+
+    /* FAQ Section */
+    .faq-container {
+      margin-top: 20px;
+    }
+
+    .faq-question {
+      background-color: #f4f4f4;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-align: left;
+    }
+
+    .faq-question:hover {
+      background-color: #ddd;
+    }
+
+    .reply-message {
+      margin-top: 15px;
+      padding: 10px;
+      background-color: #dff0d8;
+      color: #3c763d;
+      border-radius: 8px;
+      display: none;
+      text-align: center;
+    }
+    .success-message {
+            color: green;
+            display: none; /* Hide by default */
+            margin: 10px 0;
+        }
+        .error-message {
+            color: red;
+            display: none; /* Hide by default */
+            margin: 10px 0;
+          }
+
+    /* Back Button */
+    .back-btn {
+      margin-top: 20px;
+      padding: 12px;
+      background-color: #FF5733;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width: 100%;
+    }
+
+    .back-btn:hover {
+      background-color: #e14f28;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 600px) {
+      .contact-container {
+        width: 90%;
+      }
+
+      .navbar {
+        flex-direction: column;
+        align-items: flex-end;
+        padding: 0 10px;
+      }
+    }
+
+    /* Footer Styles */
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .footer-content p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .footer-content ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .footer-content li {
+      margin: 0 15px;
+    }
+
+    .footer-content a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .social-media {
+      margin-top: 10px;
+    }
+
+    .social-media a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+  </style>
+
+  <script>
+    const replies = [
+      "Thank you for reaching out! We'll get back to you shortly.",
+      "We have received your message and will respond within 24 hours.",
+      "Your inquiry is important to us! Our team will contact you soon.",
+      "Thanks for your message! We’ll respond as quickly as possible."
+    ];
+
+    const faqReplies = {
+      "What are your opening hours?": "We are open from 6:00 AM to 10:00 PM every day.",
+      "Do you offer personal training sessions?": "Yes! We offer personal training sessions at flexible hours. Contact us to book.",
+      "What membership plans do you have?": "We offer Basic, Silver, and Gold plans. Visit our Membership page for more details.",
+      "How can I cancel my membership?": "You can cancel your membership anytime by visiting our center or contacting customer support."
+    };
+
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const randomReply = replies[Math.floor(Math.random() * replies.length)];
+      const replyMessageDiv = document.querySelector('.reply-message');
+      replyMessageDiv.textContent = randomReply;
+      replyMessageDiv.style.display = 'block';
+    }
+
+    function handleFaqClick(question) {
+      const replyMessageDiv = document.querySelector('.reply-message');
+      replyMessageDiv.textContent = faqReplies[question];
+      replyMessageDiv.style.display = 'block';
+    }
+  </script>
+</head>
+
+<body>
+  <div class="navbar">
+    <img src="logoo1.png" class="logo" alt="FitZone Logo">
+    <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
+        <li><a href="membership_plans.php">Our Packages</a></li>
+        <li><a href="review.php">Customer Reviews</a></li>
+        <li><a href="news_feed.php">News</a></li>
+        <li><a id="user-button" href="loginNow.html" style="color: #FF5733; font-size: 18px;">Login</a></li>
+    </ul>
+</div>
+
+
+  <div class="contact-container">
+    <h2>Contact Us</h2>
+    <p>We are here to help! Send us a message or explore our FAQs below.</p>
+    
+
+    <form action="contact_process.php" method="POST">
+      <input type="text" id="name" name="full_name" placeholder="Full Name" required>
+      <input type="email" id="email" name="email" placeholder="Email Address" required>
+      <textarea id="message" name="message" rows="4" placeholder="Type your message" required></textarea>
+      <button type="submit">Send Message</button>
+      <div class="success-message"></div>
+    </form>
+
+    <div class="faq-container">
+      <h3>FAQs</h3>
+      <div class="faq-question" onclick="handleFaqClick('What are your opening hours?')">
+        What are your opening hours?
+      </div>
+      <div class="faq-question" onclick="handleFaqClick('Do you offer personal training sessions?')">
+        Do you offer personal training sessions?
+      </div>
+      <div class="faq-question" onclick="handleFaqClick('What membership plans do you have?')">
+        What membership plans do you have?
+      </div>
+      <div class="faq-question" onclick="handleFaqClick('How can I cancel my membership?')">
+        How can I cancel my membership?
+      </div>
+    </div>
+
+    <div class="reply-message"></div>
+    <button class="back-btn" onclick="window.location.href='index.html'">Back</button>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2024 Kurunagala FitZone Fitness Center. All Rights Reserved.</p>
+      <ul>
+        <li><a href="terms.html">Terms of Service</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+      <div class="social-media">
+        <a href="theekshana vidushan" class="fab fa-facebook-f"></a>
+        <a href="theekshana vidushan" class="fab fa-twitter"></a>
+        <a href="theekshana vidushan" class="fab fa-instagram"></a>
+        <a href="theekshana vidushan" class="fab fa-linkedin-in"></a>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
