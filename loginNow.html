@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: url(loginBGP.jpg) no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 8px;
+            width: 320px;
+            color: white;
+        }
+        .heading {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .heading h1 {
+            font-size: 2rem;
+            color: white;
+        }
+        .heading span {
+            color: #FF5733; /* Matching the color used in other pages */
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: none;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #e28b07;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .btn:hover {
+            background-color: #d67a05;
+        }
+        .button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            background-color: #555;
+            color: white;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Consistent Heading Style -->
+        <div class="heading">
+            <h1>Login to <span>FitZone</span></h1>
+        </div>
+
+        <!-- Unified Login Form -->
+        <form action="login.php" method="POST">
+            <div class="form-group">
+                <label for="email">Email ID</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+            <input type="submit" class="btn" value="Login">
+        </form>
+
+        <!-- Back and Register Buttons -->
+        <a href="index.html" class="button">Back</a>
+        <a href="regNow.html" class="button">Register Now</a>
+    </div>
+</body>
+</html>
