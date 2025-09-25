@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to the CSS file -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            min-height: 100vh;
+            background: url(loginBGP.jpg) no-repeat center center/cover;
+            display: flex;
+            font-family: sans-serif;
+        }
+        .container {
+            margin: auto;
+            width: 500px; 
+            max-width: 90%;
+        }
+        .container form {
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            background: rgba(121, 117, 117, 0.8);
+            border-radius: 4px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+        .container form h1 {
+            text-align: center;
+            margin-bottom: 24px;
+            color: black;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #e28b07;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        // JavaScript to update membership plans based on selected category
+        const plans = {
+            "Physical Fitness": [
+                { id: 1, name: "Basic Physical Fitness Plan" },
+                { id: 2, name: "Silver Physical Fitness Plan" },
+                { id: 3, name: "Gold Physical Fitness Plan" }
+            ],
+            "Fat Loss": [
+                { id: 4, name: "Basic Fat Loss Plan" },
+                { id: 5, name: "Silver Fat Loss Plan" },
+                { id: 6, name: "Gold Fat Loss Plan" }
+            ],
+            "Cardio": [
+                { id: 7, name: "Basic Cardio Plan" },
+                { id: 8, name: "Silver Cardio Plan" },
+                { id: 9, name: "Gold Cardio Plan" }
+            ],
+            "Strength Training": [
+                { id: 10, name: "Basic Strength Plan" },
+                { id: 11, name: "Silver Strength Plan" },
+                { id: 12, name: "Gold Strength Plan" }
+            ]
+        };
+
+        function updatePlans() {
+            const categorySelect = document.getElementById("category");
+            const planSelect = document.getElementById("plan_id");
+            const selectedCategory = categorySelect.value;
+
+            // Clear previous options
+            planSelect.innerHTML = '<option value="">Select a plan</option>';
+
+            // Populate new options based on selected category
+            if (selectedCategory in plans) {
+                plans[selectedCategory].forEach(plan => {
+                    const option = document.createElement("option");
+                    option.value = plan.id;
+                    option.textContent = plan.name;
+                    planSelect.appendChild(option);
+                });
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <form action="register_customer.php" method="POST"> <!-- Use POST method -->
+            <h1>Register Form</h1>
+            <div class="form-group">
+                <label for="full_name">Full Name</label>
+                <input type="text" name="full_name" class="form-control" id="full_name" required>
+            </div>
+            <div class="form-group">
+                <label for="mobile_number">Mobile Number</label>
+                <input type="text" name="mobile_number" class="form-control" id="mobile_number" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email ID</label>
+                <input type="email" name="email" class="form-control" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control" id="password" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" name="address" class="form-control" id="address" required>
+            </div>
+            <div class="form-group">
+                <label for="category">Select Training Category:</label>
+                <select name="category" id="category" onchange="updatePlans()" required>
+                    <option value="">Select a category</option>
+                    <option value="Physical Fitness">Physical Fitness</option>
+                    <option value="Fat Loss">Fat Loss</option>
+                    <option value="Cardio">Cardio</option>
+                    <option value="Strength Training">Strength Training</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="plan_id">Select Membership Plan:</label>
+                <select name="plan_id" id="plan_id" required>
+                    <option value="">Select a plan</option>
+                    <!-- Options will be populated based on category selection -->
+                </select>
+            </div>
+            <a href="loginNow.html" target="_blank">
+                
+            <button type="submit" class="btn">Register</button> </a>
+        </form>
+    </div>
+</body>
+</html>
