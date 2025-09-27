@@ -1,0 +1,549 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75)), url('121.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+/* Create a pseudo-element to apply the blur */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('121.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px); /* Adjust the blur value as needed */
+    z-index: -1; /* Place it behind the content */
+
+}
+
+.banner {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75)), url('M1.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.navbar {
+    width: 90%;
+    margin: auto;
+    padding: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 100px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar ul li {
+    margin: 0 10px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    margin-right: 20px;
+    font-weight: 300;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.navbar ul li a:hover {
+    color: #ffbc05;
+}
+
+.navbar ul li::after {
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #e46600;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: width 0.5s;
+}
+
+.navbar ul li:hover::after {
+    width: 100%;
+}
+
+
+
+.content {
+    width: 100%;
+    position: absolute;
+    top: 70%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #fff;
+}
+
+.content h1 {
+    font-size: 70px;
+    margin-top: 70px;
+}
+
+.content p {
+    margin: 20px auto;
+    margin-top: 40px;
+    font-weight: 100;
+    font-size: 18px;
+    line-height: 40px;
+    width: 60%;
+    margin-bottom: 40px;
+}
+
+/* Blast effect for "Unstoppable" */
+.blast {
+    display: inline-block;
+    color: #FF5733;
+    animation: blastEffect 2s ease-in-out infinite;
+}
+
+@keyframes blastEffect {
+    0%, 100% {
+        transform: scale(1);
+        text-shadow: 0 0 10px #FF5733, 0 0 20px #FF5733;
+    }
+    50% {
+        transform: scale(1.2);
+        text-shadow: 0 0 30px #FF5733, 0 0 60px #FF5733;
+    }
+}
+
+
+.button {
+    width: 180px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #f05108;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.button span {
+    background: #d47a03;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: width 0.5s;
+}
+
+.button:hover span {
+    width: 100%;
+}
+
+.button:hover {
+    border: none;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-content p {
+    margin: 10px 0;
+}
+
+.footer-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-content ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.footer-content ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-content .social-media {
+    margin-top: 10px;
+}
+
+.footer-content .social-media a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 20px; /* Adjust icon size */
+}
+
+
+
+/* Product Styles */
+#products {
+    position: relative; 
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.heading {
+    margin-bottom: 20px;
+}
+
+.heading h1 {
+    font-size: 70px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.heading span {
+    color: #189fdd; 
+}
+
+.products-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+.box {
+    background: rgba(168, 164, 164, 0.7); 
+    border-radius: 8px;
+    padding: 20px; /* Increased for better readability */
+    width: 300px; /* Increased for better readability */
+    text-align: left;
+    position: relative;
+    transition: transform 0.3s; 
+}
+
+.box:hover {
+    transform: scale(1.05); 
+}
+
+.box img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+.price {
+    font-weight: bold;
+}
+
+.discount {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: red;
+    color: white;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+/* Additional Product Styles */
+#products1 {
+    position: relative; 
+    padding: 20px;
+    text-align: center;
+}
+
+.heading {
+    margin-bottom: 20px;
+}
+
+.heading h1 {
+    font-size: 70px;
+}
+
+.heading span {
+    color: #FF5733; 
+}
+
+.products-container1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.box {
+    background: rgba(255, 255, 255, 0.829); 
+    border-radius: 8px;
+    padding: 20px; /* Increased for better readability */
+    width: 300px; /* Increased for better readability */
+    text-align: left;
+    position: relative;
+    transition: transform 0.3s; 
+}
+
+.box:hover {
+    transform: scale(1.05); 
+}
+
+.box img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.price {
+    font-weight: bold;
+}
+
+.discount {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: red;
+    color: white;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+/* Button Styles */
+.btn {
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #d6900c;
+    background: transparent;
+    color: #272727;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    z-index: 1;
+}
+
+.btn span {
+    background: #da8f03;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: width 0.5s;
+}
+
+.btn:hover span {
+    width: 100%;
+}
+
+.btn:hover {
+    border: none;
+}
+
+/* Membership Plans Section */
+#plans {
+    position: relative; 
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.heading {
+    margin-bottom: 20px;
+}
+
+.heading h1 {
+    font-size: 70px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.heading span {
+    color: #189fdd; 
+}
+
+/* Plans Container */
+.plans-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Plan Boxes */
+.box {
+    background: rgba(168, 164, 164, 0.7); 
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px; /* Increased for better readability */
+    text-align: left;
+    
+    position: relative;
+    transition: transform 0.3s; 
+}
+
+.box:hover {
+    transform: scale(1.05); 
+}
+
+/* Image Styles */
+.box img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Price Styling */
+.price {
+    font-weight: bold;
+}
+
+/* Button Styles */
+.button {
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #9b5513;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.button span {
+    background: #ad870a;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: width 0.5s;
+}
+
+.button:hover span {
+    width: 100%;
+}
+
+.button:hover {
+    border: none;
+}
+
+/* Category Section */
+#categories {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.category-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.category-box {
+    width: 300px; /* Set a fixed width for uniformity */
+    margin: 15px; /* Added margin for spacing */
+    position: relative;
+    border-radius: 10px; /* Add border-radius for uniformity */
+    overflow: hidden; /* Ensure child elements don’t overflow */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+}
+
+.category-box img {
+    width: 100%;
+    height: 200px; /* Set a fixed height for uniformity */
+    object-fit: cover; /* Ensure images cover the box without distortion */
+}
+
+/* Overlay Styles */
+.overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgba(223, 93, 6, 0.6); /* Transparent dark overlay */
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.category-box:hover .overlay {
+    background: rgba(72, 73, 73, 0.8); /* Darker on hover */
+}
+
+/* Headings */
+h2 {
+    font-size: 24px;
+    margin: 10px 0;
+    
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .plans-container,
+    .category-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .box, .category-box {
+        width: 90%; /* Full width for smaller screens */
+    }
+
+    .heading h1 {
+        font-size: 40px; /* Smaller heading size on mobile */
+    }
+}
